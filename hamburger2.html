@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamburger2</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora&display=swap');
+
+    body {
+	margin: 0;
+	padding: 0;
+	font-family: "Inter", sans-serif;
+}
+   
+   .menuToggle {
+     /* display: block; */
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+   }
+   
+   .menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+   }
+
+   .menuToggle a {
+     text-decoration: none;
+     color: #232323;
+     transition: color 0.3s ease;
+   }
+
+   .menuToggle div {
+     /* display: block; */
+     width: 33px;
+     height: 4px;
+     margin-bottom: 5px;
+     position: relative;
+     background: #142a25;
+     border-radius: 3px;
+     z-index: 1;
+     transform-origin: 4px 0px;
+     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
+   }
+   
+   .menuToggle div:first-child {
+     transform-origin: 0% 0%;
+   }
+   
+   .menuToggle div:nth-last-child(2) {
+     transform-origin: 0% 100%;
+   }
+
+   .menuToggle input:checked ~ div {
+     opacity: 1;
+     transform: rotate(45deg) translate(-2px, -1px);
+     background: #232323;
+   }
+
+   .menuToggle input:checked ~ div:nth-last-child(3) {
+     opacity: 0;
+     transform: rotate(0deg) scale(0.2, 0.2);
+   }
+
+   .menuToggle input:checked ~ div:nth-last-child(2) {
+     transform: rotate(-45deg) translate(0, -1px);
+   }
+
+   .menu {
+     position: absolute;
+     width: 300px;
+     margin: -100px 0 0 -50px;
+     padding: 50px;
+     padding-top: 125px;
+     border: solid 1px #eff6f5;
+	   box-shadow: 0 4px 10px 0 rgba(20, 42, 37, 0.18);
+     list-style-type: none;
+     transform-origin: 0% 0%;
+     transform: translate(0, -100%);
+     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+   }
+   
+   .menu li {
+     padding: 10px 0;
+     font-size: 18px;
+   }
+   .menuToggle input:checked ~ ul {
+     transform: none;
+   }
+</style>
+</head>
+<body>
+<nav role="navigation">
+    <div class="menuToggle">
+      <input type="checkbox" />
+      <div></div>
+      <div></div>
+      <div></div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
